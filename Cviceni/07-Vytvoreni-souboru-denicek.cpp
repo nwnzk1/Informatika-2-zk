@@ -6,8 +6,8 @@ using namespace std;
 
 int main() {
 
-	// VYTVOŘENÍ SOUBORU POMOCÍ OFSTREAM + KONTROLA OREVŘENÍ SOUBORU
-	ofstream outFile("denicek.txt");
+	// VYTVOŘENÍ SOUBORU POMOCÍ OFSTREAM + KONTROLA OREVŘENÍ SOUBORU, V ŘEŽIMU APPEND
+	ofstream outFile("denicek.txt", std::ios::app);
 	if (!outFile.is_open()) {
 		cerr << "Nelze otevrit soubor" << endl;
 		return 1;
