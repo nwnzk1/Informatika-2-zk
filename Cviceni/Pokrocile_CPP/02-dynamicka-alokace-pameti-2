@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int velikost;
+
+    // 1. Zeptáme se uživatele na velikost
+    cout << "Jak velke pole chces vytvorit? ";
+    cin >> velikost;
+
+    // 2. Dynamická alokace pole o zadané velikosti
+    // Používáme hranaté závorky [], protože alokujeme blok paměti pro více prvků
+    int* pPole = new int[velikost];
+
+    // 3. Naplnění pole čísly (0 až N-1)
+    for (int i = 0; i < velikost; i++) {
+        pPole[i] = i; // Do každého indexu uložíme jeho pořadové číslo
+    }
+
+    // 4. Výpis pole
+    cout << "Prvky v poli: ";
+    for (int i = 0; i < velikost; i++) {
+        cout << pPole[i] << " ";
+    }
+    cout << endl;
+
+    // 5. Správné uvolnění paměti
+    // U polí musíme použít delete[] (s hranatými závorkami), jinak se uvolní jen první prvek!
+    delete[] pPole;
+    
+    // Nastavení na nullptr pro bezpečnost
+    pPole = nullptr;
+
+    return 0;
+}
