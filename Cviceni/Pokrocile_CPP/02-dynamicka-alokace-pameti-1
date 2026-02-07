@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // 1. Alokace paměti na haldě (heap)
+    // Vytvoříme ukazatel pInt, který ukazuje na nově vyhrazené místo pro int
+    int* pInt = new int;
+
+    // 2. Dereference a přiřazení hodnoty
+    // Do místa v paměti, kam pInt ukazuje, uložíme hodnotu 10
+    *pInt = 10;
+
+    // 3. Výpis hodnoty
+    // Operátor * (dereference) nám umožní získat hodnotu z dané adresy
+    cout << *pInt << endl;
+
+    // 4. Uvolnění paměti
+    // Důležité: 'new' musí mít vždy svůj 'delete', jinak vzniká memory leak
+    delete pInt;
+
+    // 5. Ošetření ukazatele
+    // Nastavením na nullptr zajistíme, že pInt nebude ukazovat na neplatnou adresu (dangling pointer)
+    pInt = nullptr;
+
+    return 0; // Standardní ukončení programu
+}
